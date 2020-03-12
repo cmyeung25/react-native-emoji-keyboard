@@ -55,13 +55,29 @@ const EmojiBoard = ({
 
     const [emojiData, setEmojiData] = useState(null);
     useEffect(() => {
-        let data;
+        let defaultData;
+        let customData;
+
         if (customEmoji.length) {
-            data = handleCustomEmoji(customEmoji, blackList);
-        } else {
-            data = handleDefaultEmoji(emojiSource, blackList);
+            customData = handleCustomEmoji(customEmoji, blackList);
         }
-        setEmojiData(Object.assign({}, data));
+
+        defaultData = handleDefaultEmoji(emojiSource, blackList);
+
+
+        for (var i in defaultData) {
+          if(typeof customData[i] == 'undefined') {
+            defaultData[i] = defaultData[i].concat(customData[i])
+          }
+        }
+
+        for (var i in customData) {
+          if(typeof defaultData[i] == 'undefined') {
+            defaultData[i] = customData[i];
+          }
+        }
+
+        setEmojiData(Object.assign({}, defaultData));
     }, []);
 
     const [position] = useState(
