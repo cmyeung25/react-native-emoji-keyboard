@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
     emojiImg: {
         alignSelf: 'center',
-        resizeMode: 'cover'
+        resizeMode: 'contain'
     }
 });
 
