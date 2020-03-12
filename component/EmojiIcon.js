@@ -32,7 +32,7 @@ const EmojiIcon = ({
             onPress={() => clickEmoji(emoji)}>
             {code ?
                 <Text style={[styles.emoji, {fontSize: emojiSize}]}>{code}</Text> :
-                <Image source={{uri: img}} style={[styles.emojiImg, {width: emojiSize, height: emojiSize}]} />
+                <Image source={img} style={[styles.emojiImg, {width: emojiSize, height: emojiSize}]} />
             }
         </TouchableOpacity>
     );
