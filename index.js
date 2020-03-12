@@ -71,6 +71,12 @@ const EmojiBoard = ({
           }
         }
 
+        for (var i in customData) {
+          if(typeof defaultData[i] == 'undefined') {
+            defaultData[i] = customData[i];
+          }
+        }
+
         setEmojiData(Object.assign({}, defaultData));
     }, []);
 
